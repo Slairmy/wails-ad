@@ -9,7 +9,7 @@
 
 <script>
 import SideBar from './SideBar.vue'
-import Archery from "./Archery.vue";
+import Archery from "../tutorials/archery/Archery.vue";
 
 export default {
   name: 'Home',
@@ -34,7 +34,6 @@ export default {
 .home-container {
   display: flex;
   height: 100vh;
-  background-color: white;
 }
 
 .content-area {
