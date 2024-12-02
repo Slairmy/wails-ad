@@ -16,7 +16,7 @@
         </div>
         <div class="operator-wrapper">
 
-          <el-input v-model="departmentId" style="width: 240px" placeholder="请输入企业id" />
+          <el-input v-model="departmentId" style="width: 240px" placeholder="请输入企业id" @change="handleInputChange" @blur="handleBlur" />
           <el-button type="success">SQL查询</el-button>
 
         </div>
@@ -29,7 +29,7 @@
 
 <script>
 import AceEditor from "./editor/AceEditor.vue"
-
+import {SetCookie, GetCookie} from "../../../wailsjs/go/archery/Archery";
 
 export default {
   name: 'Archery',
@@ -51,6 +51,19 @@ export default {
     },
     handleEditorChange(value) {
       this.sqlContent = value
+    },
+    handleInputChange(value) {
+      this.departmentId = value
+    },
+    handleBlur() {
+
+      SetCookie("name","slairmy").then(() => {
+        console.log("aaaaaa")
+        GetCookie().then((result) => {
+          console.log("输出get cookie")
+          console.log(result)
+        })
+      })
     }
   },
   // 挂载一下自定义的提示词

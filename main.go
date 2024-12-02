@@ -1,6 +1,7 @@
 package main
 
 import (
+	"ad-demo/archery"
 	"embed"
 
 	"github.com/wailsapp/wails/v2"
@@ -14,7 +15,7 @@ var assets embed.FS
 func main() {
 	// Create an instance of the app structure
 	app := NewApp()
-
+	arch := archery.NewArchery()
 	// Create application with options
 	err := wails.Run(&options.App{
 		Title:  "ad-demo",
@@ -27,6 +28,7 @@ func main() {
 		OnStartup:        app.startup,
 		Bind: []interface{}{
 			app,
+			arch,
 		},
 	})
 
